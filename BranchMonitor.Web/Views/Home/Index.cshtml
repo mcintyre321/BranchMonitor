@@ -1,0 +1,35 @@
+﻿@using Newtonsoft.Json
+@{
+    ViewBag.Title = "Home Page";
+}
+<div id="content"></div>
+@section scripts{
+
+    <script src="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js")"></script>
+    <script src="@Url.Content("https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js")"></script>
+    <script src="@Url.Content("~/Scripts/Siren.jsx")"></script>
+
+
+    <script type="text/javascript">
+        var model =@Html.Raw(ViewBag.SirenJson);
+            ReactDOM.render(
+                React.createElement(Siren, model),
+                document.getElementById("content")
+            );
+
+    </script>
+}
+
+<style>
+    
+    body { padding-top: 70px; }
+     .entity {
+         padding: 20px;
+         margin: 5px;
+         margin-left: 20px;
+         border: solid 1px;
+         background-color: rgba(171, 209, 243, 0.2);
+         border-radius: 1px;
+         display: inline-block;
+     }
+</style>
